@@ -19,5 +19,5 @@ vertex float4 vertex_main(const device float3 *vertices [[buffer(0)]], uint vert
 }
 
 fragment float4 fragment_main() {
-    return float4(0.4, 0.8, 1.0, 1.0); // Light blue color
+    return float4(0.4, 0.8, 1.0, 1.0);
 }

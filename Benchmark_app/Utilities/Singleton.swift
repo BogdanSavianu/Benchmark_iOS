@@ -11,7 +11,8 @@ public struct Singleton {
     static let argonUtil = Argon2Utility()
     static let fileWriter = FileWriter()
     static let cpuInfo = CPUInfo()
+    static let gpuInfo = GPUInfo()
     static let systemInfo = SystemInfo()
-    static var memoryWrapper = Wrapper(length: 20_000_000)
+    static var memoryWrapper = Wrapper(length: 10_000_000)
 }
 

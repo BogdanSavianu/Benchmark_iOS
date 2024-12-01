@@ -4,6 +4,8 @@ struct CompleteResults: View {
     
     var body: some View {
         ScrollView {
+            Spacer()
+                .frame(height: 65)
             VStack(alignment: .leading) {
                 SystemInformation()
                 CPUResults()
@@ -12,6 +14,8 @@ struct CompleteResults: View {
             }
             .padding()
         }
+        .background(LinearGradient(gradient: Gradient(colors: [.orange, .white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+        .ignoresSafeArea()
     }
 }
 

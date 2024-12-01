@@ -39,12 +39,9 @@ struct RenderPerformanceTest {
 
         DispatchQueue.global().async {
             while Date().timeIntervalSince(startTime) < duration {
-                DispatchQueue.main.async {
-                    frameCount += 1
-                }
-                usleep(16_667) // Approx 60 FPS
+                frameCount += 1
+                usleep(16_667) // time between frames in microseconds
             }
         }
     }
 }
-

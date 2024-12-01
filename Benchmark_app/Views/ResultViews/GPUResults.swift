@@ -10,9 +10,9 @@ struct GPUResults: View {
                 .font(.headline)
                 .padding(.bottom)
 
-            Text("Device Name: \(getGPUDeviceName())")
-            Text("Supports Metal: \(supportsMetal() ? "Yes" : "No")")
-            Text("Max Threads Per Threadgroup: \(getMaxThreadsPerThreadgroup())")
+            Text("Device Name: \(Singleton.gpuInfo.getGPUDeviceName())")
+            Text("Supports Metal: \(Singleton.gpuInfo.supportsMetal() ? "Yes" : "No")")
+            Text("Max Threads Per Threadgroup: \(Singleton.gpuInfo.getMaxThreadsPerThreadgroup())")
 
             if isTesting {
                 Text("Running Rendering Test...")
@@ -30,8 +30,18 @@ struct GPUResults: View {
             }
         }
         .padding()
+        .background(
+            ZStack {
+                VisualEffectView(effect: .systemUltraThinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.white.opacity(0.6), lineWidth: 1)
+            }
+        )
+        .blendMode(.hardLight)
+        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 3)
         .onAppear {
-            if supportsMetal() {
+            if Singleton.gpuInfo.supportsMetal() {
                 isTesting = true
                 runTestGPU(testFunction: { completion in
                     RenderPerformanceTest.runRenderingTest(duration: 5.0, completion: completion)
@@ -41,24 +51,6 @@ struct GPUResults: View {
                 }
             }
         }
-    }
-
-    func getGPUDeviceName() -> String {
-        guard let device = MTLCreateSystemDefaultDevice() else {
-            return "No Metal device available"
-        }
-        return device.name
-    }
-
-    func getMaxThreadsPerThreadgroup() -> Int {
-        guard let device = MTLCreateSystemDefaultDevice() else {
-            return 0
-        }
-        return device.maxThreadsPerThreadgroup.width
-    }
-
-    func supportsMetal() -> Bool {
-        return MTLCreateSystemDefaultDevice() != nil
     }
 }
 

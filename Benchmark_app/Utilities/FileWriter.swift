@@ -11,7 +11,7 @@ struct FileWriter {
     func write(_ result: String) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let filename = documentsDirectory?.appendingPathComponent("output.txt")
-
+        
         do {
             if let filename = filename {
                 if FileManager.default.fileExists(atPath: filename.path) {

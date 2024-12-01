@@ -34,12 +34,11 @@ struct Argon2Utility {
 
 public func testArgonEasy() -> Double {
     var password: String
-    var result = ""
     
     let start = NSDate()
     for _ in 0..<100 {
         password = Singleton.argonUtil.randomAlphaNumericString(length: 8)
-        result = Singleton.argonUtil.hashString(password: password, iterations: 10, memory: 256, parallelism: 10, length: 64)
+        _ = Singleton.argonUtil.hashString(password: password, iterations: 10, memory: 256, parallelism: 10, length: 64)
     }
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
@@ -50,12 +49,11 @@ public func testArgonEasy() -> Double {
 
 public func testArgonMedium() -> Double {
     var password: String
-    var result = ""
     
     let start = NSDate()
     for _ in 0..<10 {
         password = Singleton.argonUtil.randomAlphaNumericString(length: 12)
-        result = Singleton.argonUtil.hashString(password: password, iterations: 100, memory: 512, parallelism: 4, length: 128)
+        _ = Singleton.argonUtil.hashString(password: password, iterations: 100, memory: 512, parallelism: 4, length: 128)
     }
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
@@ -66,11 +64,10 @@ public func testArgonMedium() -> Double {
 
 public func testArgonHard() -> Double {
     var password: String
-    var result = ""
     
     let start = NSDate()
     password = Singleton.argonUtil.randomAlphaNumericString(length: 20)
-    result = Singleton.argonUtil.hashString(password: password, iterations: 1000, memory: 1024, parallelism: 1, length: 256)
+    _ = Singleton.argonUtil.hashString(password: password, iterations: 1000, memory: 1024, parallelism: 1, length: 256)
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
     

@@ -18,7 +18,7 @@ class Wrapper {
 }
 
 public func testMemoryWrite() -> Double {
-    var wrapper = Singleton.memoryWrapper
+    let wrapper = Singleton.memoryWrapper
     let length = wrapper.length
     
     let randomNumbers = (0..<length).map { _ in
@@ -36,7 +36,7 @@ public func testMemoryWrite() -> Double {
 }
 
 public func testMemoryRead() -> Double {
-    var wrapper = Singleton.memoryWrapper
+    let wrapper = Singleton.memoryWrapper
     var readNumbers = Array(repeating: 0, count: wrapper.length)
     let length = wrapper.length
     

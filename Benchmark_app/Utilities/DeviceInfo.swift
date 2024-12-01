@@ -19,3 +19,23 @@ struct SystemInfo {
     let deviceModel = UIDevice.current.model
     let deviceName = UIDevice.current.name
 }
+
+struct GPUInfo {
+    func getGPUDeviceName() -> String {
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            return "No Metal device available"
+        }
+        return device.name
+    }
+
+    func getMaxThreadsPerThreadgroup() -> Int {
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            return 0
+        }
+        return device.maxThreadsPerThreadgroup.width
+    }
+
+    func supportsMetal() -> Bool {
+        return MTLCreateSystemDefaultDevice() != nil
+    }
+}

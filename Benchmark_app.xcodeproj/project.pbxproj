@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		14038ACA2CD6698200ED5F8A /* Argon2Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 14038AC92CD6698200ED5F8A /* Argon2Swift */; };
-		14CEE38A2CDD635300E9BB26 /* CwlUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 14CEE3892CDD635300E9BB26 /* CwlUtils */; };
-		14CEE38B2CDD6E0F00E9BB26 /* CwlUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 14CEE3892CDD635300E9BB26 /* CwlUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		14DAEC602CF70CAA00291CD1 /* DataCompression in Frameworks */ = {isa = PBXBuildFile; productRef = 14DAEC5F2CF70CAA00291CD1 /* DataCompression */; };
+		14FFC6C62CF719D2000ABDA9 /* compress_this.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 14FF9D622CF719D1000ABDA9 /* compress_this.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,7 +19,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14CEE38B2CDD6E0F00E9BB26 /* CwlUtils in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -28,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		14F4B8C32CD65B9600943E80 /* Benchmark_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Benchmark_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14FF9D622CF719D1000ABDA9 /* compress_this.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = compress_this.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,7 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14038ACA2CD6698200ED5F8A /* Argon2Swift in Frameworks */,
-				14CEE38A2CDD635300E9BB26 /* CwlUtils in Frameworks */,
+				14DAEC602CF70CAA00291CD1 /* DataCompression in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +54,7 @@
 		14F4B8BA2CD65B9600943E80 = {
 			isa = PBXGroup;
 			children = (
+				14FFC8F12CF71CB4000ABDA9 /* Assets */,
 				14F4B8C52CD65B9600943E80 /* Benchmark_app */,
 				14F4B8C42CD65B9600943E80 /* Products */,
 			);
@@ -65,6 +66,14 @@
 				14F4B8C32CD65B9600943E80 /* Benchmark_app.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		14FFC8F12CF71CB4000ABDA9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				14FF9D622CF719D1000ABDA9 /* compress_this.pdf */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,7 +98,7 @@
 			name = Benchmark_app;
 			packageProductDependencies = (
 				14038AC92CD6698200ED5F8A /* Argon2Swift */,
-				14CEE3892CDD635300E9BB26 /* CwlUtils */,
+				14DAEC5F2CF70CAA00291CD1 /* DataCompression */,
 			);
 			productName = Benchmark_app;
 			productReference = 14F4B8C32CD65B9600943E80 /* Benchmark_app.app */;
@@ -121,7 +130,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				14038AC82CD6698200ED5F8A /* XCRemoteSwiftPackageReference "Argon2Swift" */,
-				14CEE3882CDD635300E9BB26 /* XCRemoteSwiftPackageReference "CwlUtils" */,
+				14DAEC5E2CF70CAA00291CD1 /* XCRemoteSwiftPackageReference "DataCompression" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14F4B8C42CD65B9600943E80 /* Products */;
@@ -138,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14FFC6C62CF719D2000ABDA9 /* compress_this.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +306,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code/a",
+					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bogdan.Benchmark-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -327,6 +342,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code/a",
+					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bogdan.Benchmark-app";
@@ -369,12 +389,12 @@
 				kind = branch;
 			};
 		};
-		14CEE3882CDD635300E9BB26 /* XCRemoteSwiftPackageReference "CwlUtils" */ = {
+		14DAEC5E2CF70CAA00291CD1 /* XCRemoteSwiftPackageReference "DataCompression" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mattgallagher/CwlUtils";
+			repositoryURL = "https://github.com/mw99/DataCompression.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 3.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -385,10 +405,10 @@
 			package = 14038AC82CD6698200ED5F8A /* XCRemoteSwiftPackageReference "Argon2Swift" */;
 			productName = Argon2Swift;
 		};
-		14CEE3892CDD635300E9BB26 /* CwlUtils */ = {
+		14DAEC5F2CF70CAA00291CD1 /* DataCompression */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 14CEE3882CDD635300E9BB26 /* XCRemoteSwiftPackageReference "CwlUtils" */;
-			productName = CwlUtils;
+			package = 14DAEC5E2CF70CAA00291CD1 /* XCRemoteSwiftPackageReference "DataCompression" */;
+			productName = DataCompression;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

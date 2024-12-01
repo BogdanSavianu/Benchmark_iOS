@@ -1,5 +1,5 @@
 {
-  "originHash" : "4d41c3ffba8d53c6d767d63b53d9ab0caded7332d45d5a499daa5bf0202d064c",
+  "originHash" : "ed6f518b2d86ebfb6703566ba7f46459a16631e3ab35c3c4066975fcde2fe25d",
   "pins" : [
     {
       "identity" : "argon2swift",
@@ -11,30 +11,12 @@
       }
     },
     {
-      "identity" : "cwlcatchexception",
+      "identity" : "datacompression",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
+      "location" : "https://github.com/mw99/DataCompression.git",
       "state" : {
-        "revision" : "07b2ba21d361c223e25e3c1e924288742923f08c",
-        "version" : "2.2.1"
-      }
-    },
-    {
-      "identity" : "cwlpreconditiontesting",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-      "state" : {
-        "revision" : "0139c665ebb45e6a9fbdb68aabfd7c39f3fe0071",
-        "version" : "2.2.2"
-      }
-    },
-    {
-      "identity" : "cwlutils",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlUtils",
-      "state" : {
-        "revision" : "0bfc4587d01cfc796b6c7e118fc631333dd8ab33",
-        "version" : "3.0.0"
+        "revision" : "5ab15951321b08b74511601cbd0497667649d70b",
+        "version" : "3.8.0"
       }
     },
     {

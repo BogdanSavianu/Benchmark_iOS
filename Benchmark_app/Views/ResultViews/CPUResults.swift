@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct CPUResults: View {
-
     var body: some View {
         VStack(alignment: .leading) {
             Text("CPU Info")
@@ -14,18 +13,27 @@ struct CPUResults: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text("CPU Test Results")
                     .font(.headline)
-                TestResultView(testType: .CPUSingle, label: "Floating Point +-", testResult: nil, function: testFloatingPointSumDiff)
-                TestResultView(testType: .CPUSingle, label: "Floating Point */", testResult: nil, function: testFloatingPointProdDiv)
-                TestResultView(testType: .CPUMulti, label: "Floating Point +- Multithreaded", testResult: nil, functionAsync: testFloatingPointSumDiffMultithreaded)
+                TestResultView(testType: .CPUSingle, label: "Floating Point +-", function: testFloatingPointSumDiff)
+                TestResultView(testType: .CPUSingle, label: "Floating Point */", function: testFloatingPointProdDiv)
+                TestResultView(testType: .CPUMulti, label: "Floating Point +- Multithreaded", functionAsync: testFloatingPointSumDiffMultithreaded)
                 TestResultView(testType: .CPUMulti, label: "Floating Point */ Multithreaded", testResult: nil, functionAsync: testFloatingPointProdDivfMultithreaded)
-                TestResultView(testType: .CPUArgon, label: "Easy Argon Test", testResult: nil, function: testArgonEasy)
-                TestResultView(testType: .CPUArgon, label: "Medium Argon Test", testResult: nil, function: testArgonMedium)
-                TestResultView(testType: .CPUArgon, label: "Hard Argon Test", testResult: nil, function: testArgonHard)
+                TestResultView(testType: .CPUArgon, label: "Easy Argon Test", function: testArgonEasy)
+                TestResultView(testType: .CPUArgon, label: "Medium Argon Test", function: testArgonMedium)
+                TestResultView(testType: .CPUArgon, label: "Hard Argon Test", function: testArgonHard)
+                TestResultView(testType: .Compression, label: "Compression test", function: compressionTests)
             }
-            .padding(.top)
-
         }
         .padding()
+        .background(
+            ZStack {
+                VisualEffectView(effect: .systemUltraThinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+            }
+        )
+        .blendMode(.hardLight)
+        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 3)
     }
 }
 
