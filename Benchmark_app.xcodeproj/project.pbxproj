@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		14038ACA2CD6698200ED5F8A /* Argon2Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 14038AC92CD6698200ED5F8A /* Argon2Swift */; };
+		144BC2152CFE22FE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.png in Resources */ = {isa = PBXBuildFile; fileRef = 144BC2142CFE22FE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.png */; };
+		144BC2172CFE24AE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 144BC2162CFE24AE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg */; };
+		14554D162CFE2D7D007453DF /* IMG_1669.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 14554D152CFE2D7D007453DF /* IMG_1669.jpeg */; };
 		14DAEC602CF70CAA00291CD1 /* DataCompression in Frameworks */ = {isa = PBXBuildFile; productRef = 14DAEC5F2CF70CAA00291CD1 /* DataCompression */; };
+		14FF66A82CFE581B00BD3F64 /* benchmark-icon(1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14FF66A72CFE581B00BD3F64 /* benchmark-icon(1).jpg */; };
 		14FFC6C62CF719D2000ABDA9 /* compress_this.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 14FF9D622CF719D1000ABDA9 /* compress_this.pdf */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +30,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		144BC2142CFE22FE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "B41E2C10-2041-4B0A-91D3-3136903C9BB2.png"; sourceTree = "<group>"; };
+		144BC2162CFE24AE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg"; sourceTree = "<group>"; };
+		14554D152CFE2D7D007453DF /* IMG_1669.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1669.jpeg; sourceTree = "<group>"; };
 		14F4B8C32CD65B9600943E80 /* Benchmark_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Benchmark_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14FF66A72CFE581B00BD3F64 /* benchmark-icon(1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "benchmark-icon(1).jpg"; sourceTree = "<group>"; };
 		14FF9D622CF719D1000ABDA9 /* compress_this.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = compress_this.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +79,10 @@
 		14FFC8F12CF71CB4000ABDA9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				14FF66A72CFE581B00BD3F64 /* benchmark-icon(1).jpg */,
+				14554D152CFE2D7D007453DF /* IMG_1669.jpeg */,
+				144BC2162CFE24AE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg */,
+				144BC2142CFE22FE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.png */,
 				14FF9D622CF719D1000ABDA9 /* compress_this.pdf */,
 			);
 			path = Assets;
@@ -147,7 +159,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144BC2172CFE24AE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.jpeg in Resources */,
 				14FFC6C62CF719D2000ABDA9 /* compress_this.pdf in Resources */,
+				144BC2152CFE22FE00377FEA /* B41E2C10-2041-4B0A-91D3-3136903C9BB2.png in Resources */,
+				14554D162CFE2D7D007453DF /* IMG_1669.jpeg in Resources */,
+				14FF66A82CFE581B00BD3F64 /* benchmark-icon(1).jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +303,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Benchmark_app/Benchmark_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -296,6 +314,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Benchmark-app-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Benchmark;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -306,12 +326,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code/a",
-					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code",
-				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bogdan.Benchmark-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -324,7 +339,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Benchmark_app/Benchmark_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -333,6 +350,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Benchmark-app-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Benchmark;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -343,12 +362,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code/a",
-					"$(PROJECT_DIR)/Benchmark_app/ruby-master/spec/ruby/fixtures/code",
-				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bogdan.Benchmark-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

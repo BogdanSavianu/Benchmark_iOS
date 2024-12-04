@@ -11,8 +11,8 @@ enum TestType {
     case CPUSingle
     case CPUMulti
     case CPUArgon
-    case Memory
     case Compression
+    case Memory
 }
 
 struct TestResultView: View {
@@ -23,38 +23,39 @@ struct TestResultView: View {
     var functionAsync: () async -> Double = { return 0.0 }
     
     var body: some View {
-            VStack {
-                HStack {
-                    Text(label)
-                        .font(.headline)
-                    Spacer()
-                    if let result = testResult {
-                        Text("\(result, specifier: "%.4f") seconds")
-                            .foregroundColor(.green)
-                    } else {
-                        ProgressView()
-                    }
-                }
-                .padding(.maximum(5, 5))
-            }
-            .padding(.horizontal)
-            .onAppear {
-                if testType == .CPUMulti {
-                    runTestCPUMulti(testFunctionAsync: functionAsync) { result in
-                        testResult = result
-                    }
-                } else if testType == .Memory {
-                    runTestMemory(testFunction: function) { result in
-                        testResult = result
-                    }
+        VStack {
+            HStack {
+                Text(label)
+                    .font(.headline)
+                Spacer()
+                if let result = testResult {
+                    Text("\(result, specifier: "%.4f") seconds")
+                        .foregroundColor(.blue)
                 } else {
-                    runTestCPU(testFunction: function) { result in
-                        testResult = result
-                    }
+                    ProgressView()
                 }
             }
-        }}
+            .padding(.maximum(5, 5))
+        }
+        .padding(.horizontal)
+        .onAppear {
+            if testType == .CPUMulti {
+                runTestCPUMulti(testFunctionAsync: functionAsync) { result in
+                    testResult = result
+                }
+            } else if testType == .Memory {
+                runTestMemory(testFunction: function) { result in
+                    testResult = result
+                }
+            } else {
+                runTestCPU(testFunction: function) { result in
+                    testResult = result
+                }
+            }
+        }
+    }
+}
 
 #Preview {
-    TestResultView(testType: .CPUSingle, label: "Easy Test", testResult: nil, function: testArgonEasy)
+    TestResultView(testType: .CPUSingle, label: "Easy Test", function: testArgonEasy)
 }

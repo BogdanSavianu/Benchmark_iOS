@@ -13,11 +13,11 @@ public func runTestGPU(testFunction: @escaping (@escaping (Double) -> Void) -> V
 
         testFunction { fps in
             result = fps
-            Singleton.fileWriter.write(String(result))
             semaphore.signal()
         }
 
         semaphore.wait()
+        Singleton.calculator.values.append(Singleton.calculator.normalize(result, renderingReference))
         DispatchQueue.main.async {
             completion(result)
         }

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- iOS rounded rectangle background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5B9CEA"/>
+      <stop offset="100%" style="stop-color:#4A90E2"/>
+    </linearGradient>
+    <!-- Inner shadow for depth -->
+    <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset dx="2" dy="2"/>
+      <feComposite operator="arithmetic" k2="-1" k3="1" in="SourceGraphic"/>
+    </filter>
+    <!-- Subtle glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background with gradient -->
+  <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative background circles -->
+  <circle cx="512" cy="512" r="450" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.1"/>
+  <circle cx="512" cy="512" r="420" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.1"/>
+  
+  <!-- Main speedometer base with enhanced depth -->
+  <circle cx="512" cy="512" r="400" fill="#FFFFFF" stroke="#2C3E50" stroke-width="40" filter="url(#innerShadow)"/>
+  <circle cx="512" cy="512" r="360" fill="#F8F9FA"/>
+  
+  <!-- Detailed speed marks -->
+  <!-- Major marks -->
+  <path d="M512 192 L512 272" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M752 272 L704 336" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M832 512 L752 512" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M752 752 L704 688" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M512 832 L512 752" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M272 752 L320 688" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M192 512 L272 512" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  <path d="M272 272 L320 336" stroke="#2C3E50" stroke-width="24" stroke-linecap="round"/>
+  
+  <!-- Minor marks -->
+  <path d="M632 232 L608 276" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M792 392 L748 416" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M792 632 L748 608" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M632 792 L608 748" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M392 792 L416 748" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M232 632 L276 608" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M232 392 L276 416" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M392 232 L416 276" stroke="#2C3E50" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Speed numbers -->
+  <text x="512" y="172" text-anchor="middle" fill="#2C3E50" font-size="36" font-family="Arial" font-weight="bold">0</text>
+  <text x="832" y="532" text-anchor="start" fill="#2C3E50" font-size="36" font-family="Arial" font-weight="bold">100</text>
+  <text x="512" y="872" text-anchor="middle" fill="#2C3E50" font-size="36" font-family="Arial" font-weight="bold">50</text>
+  <text x="172" y="532" text-anchor="end" fill="#2C3E50" font-size="36" font-family="Arial" font-weight="bold">75</text>
+  
+  <!-- Glowing needle -->
+  <path d="M512 512 L704 320" stroke="#FF6B6B" stroke-width="32" stroke-linecap="round" filter="url(#glow)"/>
+  
+  <!-- Enhanced center cap -->
+  <circle cx="512" cy="512" r="50" fill="#2C3E50"/>
+  <circle cx="512" cy="512" r="45" fill="#404B5C"/>
+  <circle cx="512" cy="512" r="30" fill="#FF6B6B"/>
+  <circle cx="512" cy="512" r="25" fill="#FF8080"/>
+  
+  <!-- Happy face with more detail -->
+  <circle cx="512" cy="512" r="240" fill="none" stroke="#2C3E50" stroke-width="16"/>
+  <!-- Eyes with highlights -->
+  <circle cx="420" cy="440" r="30" fill="#2C3E50"/>
+  <circle cx="604" cy="440" r="30" fill="#2C3E50"/>
+  <circle cx="428" cy="432" r="8" fill="#FFFFFF"/>
+  <circle cx="612" cy="432" r="8" fill="#FFFFFF"/>
+  <!-- Smile with more detail -->
+  <path d="M400 560 Q512 640 624 560" fill="none" stroke="#2C3E50" stroke-width="16" stroke-linecap="round"/>
+  <path d="M420 570 Q512 640 604 570" fill="none" stroke="#2C3E50" stroke-width="8" stroke-linecap="round"/>
+</svg>

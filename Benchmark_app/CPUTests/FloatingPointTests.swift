@@ -21,6 +21,8 @@ public func testFloatingPointSumDiff() -> Double {
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
 
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointPlusMinusReference))
+
     return time
 }
 
@@ -38,6 +40,8 @@ public func testFloatingPointProdDiv() -> Double {
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
 
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointMulDivReference))
+    
     return time
 }
 
@@ -67,7 +71,11 @@ func testFloatingPointSumDiffMultithreaded() async -> Double {
     }
 
     let end = NSDate()
-    return end.timeIntervalSince(start as Date)
+    let time = end.timeIntervalSince(start as Date)
+    
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPoinPlusMinusMultiThReference))
+    
+    return time
 }
 
 func testFloatingPointProdDivfMultithreaded() async -> Double {
@@ -96,5 +104,9 @@ func testFloatingPointProdDivfMultithreaded() async -> Double {
     }
 
     let end = NSDate()
-    return end.timeIntervalSince(start as Date)
+    let time =  end.timeIntervalSince(start as Date)
+    
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointMulDivMultiThReference))
+    
+    return time
 }

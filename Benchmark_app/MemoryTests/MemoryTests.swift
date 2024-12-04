@@ -31,8 +31,11 @@ public func testMemoryWrite() -> Double {
     }
     
     let end = NSDate()
+    let time = end.timeIntervalSince(start as Date)
     
-    return end.timeIntervalSince(start as Date)
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, memoryWriteReference))
+    
+    return time
 }
 
 public func testMemoryRead() -> Double {
@@ -46,7 +49,9 @@ public func testMemoryRead() -> Double {
     }
     
     let end = NSDate()
+    let time = end.timeIntervalSince(start as Date)
     
-    return end.timeIntervalSince(start as Date)
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, memoryReadReference))
     
+    return time
 }

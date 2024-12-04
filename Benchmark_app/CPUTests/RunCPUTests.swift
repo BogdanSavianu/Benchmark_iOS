@@ -15,7 +15,6 @@ import UIKit
 public func runTestCPU(testFunction: @escaping () -> Double, completion: @escaping (Double) -> Void) {
     Singleton.serialTestQueue.async {
         let result = testFunction()
-        Singleton.fileWriter.write(String(result))
         DispatchQueue.main.async {
             completion(result)
         }
@@ -26,7 +25,6 @@ public func runTestCPUMulti(testFunctionAsync: @escaping () async -> Double, com
     Singleton.serialTestQueue.async {
         Task.detached {
             let result = await testFunctionAsync()
-            Singleton.fileWriter.write(String(result))
             DispatchQueue.main.async {
                 completion(result)
             }

@@ -15,7 +15,6 @@ import UIKit
 public func runTestMemory(testFunction: @escaping () -> Double, completion: @escaping (Double) -> Void) {
     Singleton.serialTestQueue.async {
         let result = testFunction()
-        Singleton.fileWriter.write(String(result))
         DispatchQueue.main.async {
             completion(result)
         }

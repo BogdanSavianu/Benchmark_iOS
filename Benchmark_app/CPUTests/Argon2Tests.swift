@@ -34,7 +34,6 @@ struct Argon2Utility {
 
 public func testArgonEasy() -> Double {
     var password: String
-    
     let start = NSDate()
     for _ in 0..<100 {
         password = Singleton.argonUtil.randomAlphaNumericString(length: 8)
@@ -43,8 +42,13 @@ public func testArgonEasy() -> Double {
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
     
-    return time
+    let normalized = Singleton.calculator.normalize(time, argonEasyReference)
+    print("Normalized value: \(normalized)") // Debug output
     
+    Singleton.calculator.values.append(normalized)
+    print("Values: \(Singleton.calculator.values)") // Debug output
+    
+    return time
 }
 
 public func testArgonMedium() -> Double {
@@ -58,8 +62,9 @@ public func testArgonMedium() -> Double {
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
     
-    return time
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, argonMediumReference))
     
+    return time
 }
 
 public func testArgonHard() -> Double {
@@ -71,7 +76,8 @@ public func testArgonHard() -> Double {
     let end = NSDate()
     let time: Double = end.timeIntervalSince(start as Date)
     
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, argonHardReference))
+
     return time
-    
 }
 

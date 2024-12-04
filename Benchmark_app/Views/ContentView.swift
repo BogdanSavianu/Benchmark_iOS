@@ -5,62 +5,79 @@ struct ContentView: View {
     @State private var navigateToCPUResults = false
     @State private var navigateToGPUResults = false
     @State private var navigateToMemoryResults = false
+    @State private var navigateToLeaderbaord = false
+    @State private var navigateToChart = false
+
 
     var body: some View {
         NavigationStack {
-            HStack {
-                Spacer()
-                VStack(alignment: .leading) {
-                    Spacer()
-                    
-                    ButtonView(title: "Complete Run") {
-                        navigateToCompleteResults = true
-                    }
-                    
-                    ButtonView(title: "CPU Test") {
-                        navigateToCPUResults = true
-                    }
-                    
-                    ButtonView(title: "GPU Test") {
-                        navigateToGPUResults = true
-                    }
-                    
-                    ButtonView(title: "Memory Test") {
-                        navigateToMemoryResults = true
-                    }
-                    
-                    ButtonView(title: "Leaderboard") {
-                    }
-                    
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                }
-                .padding()
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [.green, .cyan]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
                 
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
+                VStack {
+                    Text("Welcome to SwiftUI Benchmarking")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .padding(.bottom, 40)
+                    
+                    HStack {
+                        Spacer(minLength: 20)
+                        VStack {
+                            
+                            VStack(alignment: .leading, spacing: 20) {
+                                ButtonView(title: "Complete Run") {
+                                    navigateToCompleteResults = true
+                                }
+                                
+                                ButtonView(title: "CPU Test") {
+                                    navigateToCPUResults = true
+                                }
+                                
+                                ButtonView(title: "GPU Test") {
+                                    navigateToGPUResults = true
+                                }
+                                
+                                ButtonView(title: "Memory Test") {
+                                    navigateToMemoryResults = true
+                                }
+                                
+                                ButtonView(title: "Leaderboard") {
+                                    navigateToLeaderbaord = true
+                                }
+                                
+                                ButtonView(title: "Chart") {
+                                    navigateToChart = true
+                                }
+                            }
+                            .padding()
+                        }
+                        Spacer(minLength: 200)
+                    }
+                }
             }
-            .background(
-                LinearGradient(gradient: Gradient(colors: [.green, .cyan]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all)
-            )
             .navigationDestination(isPresented: $navigateToCPUResults) {
-                CPUResults()
+                CPUResults(isStandalone: true)
             }
             .navigationDestination(isPresented: $navigateToGPUResults) {
-                GPUResults()
+                GPUResults(isStandalone: true)
             }
             .navigationDestination(isPresented: $navigateToCompleteResults) {
                 CompleteResults()
             }
             .navigationDestination(isPresented: $navigateToMemoryResults) {
-                MemoryResults()
+                MemoryResults(isStandalone: true)
+            }
+            .navigationDestination(isPresented: $navigateToLeaderbaord) {
+                LeaderboardView()
+            }
+            .navigationDestination(isPresented: $navigateToChart) {
+                GraphView()
             }
         }
     }

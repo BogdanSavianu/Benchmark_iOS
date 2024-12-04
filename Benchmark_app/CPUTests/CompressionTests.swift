@@ -22,6 +22,8 @@ func compressionTests() -> Double {
         CompressUtil().compress(filePath: "compress_this")
     }
     let end = DispatchTime.now()
-    let elapsed = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
-    return elapsed
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
+    Singleton.calculator.values.append(Singleton.calculator.normalize(time, compressionReference))
+    
+    return time
 }

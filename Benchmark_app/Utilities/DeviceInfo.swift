@@ -12,11 +12,23 @@ struct CPUInfo {
     let processorCount = ProcessInfo.processInfo.processorCount
     let activeProcessorCount = ProcessInfo.processInfo.activeProcessorCount
     let physicalMemory = ProcessInfo.processInfo.physicalMemory
+    
+    static func getDeviceModel() -> String {
+            var systemInfo = utsname()
+            uname(&systemInfo)
+            
+            let machineMirror = Mirror(reflecting: systemInfo.machine)
+            let model = machineMirror.children.reduce("") { (current, element) in
+                guard let value = element.value as? Int8, value != 0 else { return current }
+                return current + String(UnicodeScalar(UInt8(value)))
+            }
+            return model
+        }
 }
 
 struct SystemInfo {
     let systemVersion = UIDevice.current.systemVersion
-    let deviceModel = UIDevice.current.model
+    let deviceModel = CPUInfo.getDeviceModel()
     let deviceName = UIDevice.current.name
 }
 
