@@ -13,13 +13,13 @@ public func testFloatingPointSumDiff() -> Double {
     let randomNumbers = (0..<totalIterations * 2).map { _ in
         Float.random(in: 0...10000)
     }
-    let start = NSDate()
+    let start = DispatchTime.now()
     for index in 0..<totalIterations {
         let _ = randomNumbers[index] + randomNumbers[index + totalIterations]
         let _ = randomNumbers[index] - randomNumbers[index + totalIterations]
     }
-    let end = NSDate()
-    let time: Double = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
 
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointPlusMinusReference))
 
@@ -32,13 +32,13 @@ public func testFloatingPointProdDiv() -> Double {
     let randomNumbers = (0..<totalIterations * 2).map { _ in
         Float.random(in: 0...10000)
     }
-    let start = NSDate()
+    let start = DispatchTime.now()
     for index in 0..<totalIterations {
         let _ = randomNumbers[index] * randomNumbers[index + totalIterations]
         let _ = randomNumbers[index] / randomNumbers[index + totalIterations]
     }
-    let end = NSDate()
-    let time: Double = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
 
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointMulDivReference))
     
@@ -53,7 +53,7 @@ func testFloatingPointSumDiffMultithreaded() async -> Double {
     let numberOfThreads = totalIterations / Singleton.cpuInfo.processorCount
     let iterationsPerThread = totalIterations / numberOfThreads
 
-    let start = NSDate()
+    let start = DispatchTime.now()
     await withTaskGroup(of: Void.self) { group in
         for indexThread in 0..<numberOfThreads {
             group.addTask {
@@ -70,8 +70,8 @@ func testFloatingPointSumDiffMultithreaded() async -> Double {
         }
     }
 
-    let end = NSDate()
-    let time = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
     
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPoinPlusMinusMultiThReference))
     
@@ -86,7 +86,7 @@ func testFloatingPointProdDivfMultithreaded() async -> Double {
     let numberOfThreads = totalIterations / Singleton.cpuInfo.processorCount
     let iterationsPerThread = totalIterations / numberOfThreads
 
-    let start = NSDate()
+    let start = DispatchTime.now()
     await withTaskGroup(of: Void.self) { group in
         for indexThread in 0..<numberOfThreads {
             group.addTask {
@@ -103,8 +103,8 @@ func testFloatingPointProdDivfMultithreaded() async -> Double {
         }
     }
 
-    let end = NSDate()
-    let time =  end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
     
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, floatingPointMulDivMultiThReference))
     

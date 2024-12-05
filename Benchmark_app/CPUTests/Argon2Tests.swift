@@ -34,13 +34,13 @@ struct Argon2Utility {
 
 public func testArgonEasy() -> Double {
     var password: String
-    let start = NSDate()
+    let start = DispatchTime.now()
     for _ in 0..<100 {
         password = Singleton.argonUtil.randomAlphaNumericString(length: 8)
         _ = Singleton.argonUtil.hashString(password: password, iterations: 10, memory: 256, parallelism: 10, length: 64)
     }
-    let end = NSDate()
-    let time: Double = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
     
     let normalized = Singleton.calculator.normalize(time, argonEasyReference)
     print("Normalized value: \(normalized)") // Debug output
@@ -54,13 +54,13 @@ public func testArgonEasy() -> Double {
 public func testArgonMedium() -> Double {
     var password: String
     
-    let start = NSDate()
+    let start = DispatchTime.now()
     for _ in 0..<10 {
         password = Singleton.argonUtil.randomAlphaNumericString(length: 12)
         _ = Singleton.argonUtil.hashString(password: password, iterations: 100, memory: 512, parallelism: 4, length: 128)
     }
-    let end = NSDate()
-    let time: Double = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
     
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, argonMediumReference))
     
@@ -70,11 +70,11 @@ public func testArgonMedium() -> Double {
 public func testArgonHard() -> Double {
     var password: String
     
-    let start = NSDate()
+    let start = DispatchTime.now()
     password = Singleton.argonUtil.randomAlphaNumericString(length: 20)
     _ = Singleton.argonUtil.hashString(password: password, iterations: 1000, memory: 1024, parallelism: 1, length: 256)
-    let end = NSDate()
-    let time: Double = end.timeIntervalSince(start as Date)
+    let end = DispatchTime.now()
+    let time = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000_000.0
     
     Singleton.calculator.values.append(Singleton.calculator.normalize(time, argonHardReference))
 
