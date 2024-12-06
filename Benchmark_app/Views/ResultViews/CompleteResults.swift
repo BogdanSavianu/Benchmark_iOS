@@ -24,6 +24,12 @@ struct CompleteResults: View {
             )
         )
         .ignoresSafeArea()
+        .onAppear() {
+            Singleton.calculator.values.removeAll()
+        }
+        .onDisappear() {
+            Singleton.calculator.values.removeAll()
+        }
     }
 }
 

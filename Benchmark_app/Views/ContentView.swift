@@ -20,7 +20,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
                 
                 VStack {
-                    Text("Welcome to SwiftUI Benchmarking")
+                    Text("Welcome to iOS Benchmarking")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
